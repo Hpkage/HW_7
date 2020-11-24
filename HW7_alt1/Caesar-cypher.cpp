@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using std::string;
 using std::endl;
@@ -24,43 +25,49 @@ void shift(string& caesar, int value) {
 	}
 }
 
+bool isParam(string line)
+{
+	if (isdigit(atoi(line.c_str())))
+		return true;
+
+	return false;
+}
+
+
 int main() {
 	while (true) {
 		string input;
-		int num;
+		string num;
+		int value;
 
 		// string to shift
 		cout << "Type anything in (Enter nothing to exit): ";
 		getline(cin, input);
 		cout << endl;
 
-		// Press enter to quit
-		if (input == "") {
-			cout << "Terminating program..." << endl;
-			break;
-		}
-
-		cin.ignore();
-
 		while (true) {
-			// value of the shift
-			cout << "Enter a number :";
-			cin >> num;
-			cout << endl;
-			if (!isdigit(num)) {
-				break;
+			if (input == "") {
+				cout << "Terminating program..." << endl;
+				return 0;
 			}
-			else {
-				cout << "Error, please enter a number" << endl;
+			// value of the shift
+			cout << "Enter a number: ";
+			getline(cin, num);
+			cout << endl;
+			std::stringstream con(num);
+			con >> value;
+
+			for (auto i : num) {
+				if (!isdigit(i)) {
+					cout << "Error, please enter a number" << endl;
+				}
+				else {
+					break;
+				}
 			}
 		}
-
-		cin.clear();
-		cin.ignore();
-
 		shift(input, num);
 		cout << input << endl;
-
 	}
 	return 0;
 }
