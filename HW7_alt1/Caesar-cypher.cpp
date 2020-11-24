@@ -49,7 +49,7 @@ int main() {
 			std::stringstream con(num);
 
 			for (auto i : num) {
-				if (!isdigit(i)) {
+				if (!isdigit(i) && i != '-') {
 					cout << "Error, please enter a number" << endl;
 				}
 				else {
@@ -63,7 +63,7 @@ int main() {
 		}
 
 		shift(input, value);
-		cout << input << endl;
+		cout << "Result: " << input << endl << endl;
 	}
 	return 0;
 }
