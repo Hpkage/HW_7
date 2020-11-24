@@ -25,15 +25,6 @@ void shift(string& caesar, int value) {
 	}
 }
 
-bool isParam(string line)
-{
-	if (isdigit(atoi(line.c_str())))
-		return true;
-
-	return false;
-}
-
-
 int main() {
 	while (true) {
 		string input;
