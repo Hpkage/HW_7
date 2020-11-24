@@ -46,6 +46,7 @@ int main() {
 		cout << endl;
 
 		while (true) {
+			bool end = false;
 			if (input == "") {
 				cout << "Terminating program..." << endl;
 				return 0;
@@ -55,18 +56,22 @@ int main() {
 			getline(cin, num);
 			cout << endl;
 			std::stringstream con(num);
-			con >> value;
 
 			for (auto i : num) {
 				if (!isdigit(i)) {
 					cout << "Error, please enter a number" << endl;
 				}
 				else {
-					break;
+					con >> value;
+					end = true;
 				}
 			}
+			if (end) {
+				break;
+			}
 		}
-		shift(input, num);
+
+		shift(input, value);
 		cout << input << endl;
 	}
 	return 0;
