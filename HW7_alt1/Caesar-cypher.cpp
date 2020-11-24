@@ -11,20 +11,23 @@ using std::cout;
 
 void shift(string& caesar, int value) {
 	for (auto& i: caesar) {
-		if (isupper(i)) {
-			if (i + value < 91 && i + value > 64){
-				i = i + value;
-			}
-			else {
-				i = i + value - 26;
-			}
+		if (i < 65) {
+			continue;
+		}
+		else if (isupper(i)) {
+			 if (i + value < 91 && i + value > 64){
+				 i = i + value;
+			 }
+			 else {
+				 i = i + value - 26 * (value / 26);
+			 }
 		}
 		else {
 			if (i + value < 123 && i + value > 96) {
 				i = i + value;
 			}
 			else {
-				i = i + value - 26;
+				i = i + value - 26 * (value / 26);
 			}
 		}
 	}
