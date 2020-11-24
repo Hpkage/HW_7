@@ -7,10 +7,18 @@
 using std::string;
 using std::endl;
 using std::cin;
+using std::cout;
 
 int main() {
 	string input;
+	int num;
+	cout << "Type anything in: ";
 	cin >> input;
+	cout << endl;
+	cout << "Enter a number :";
+	cin >> num;
+	cout << endl;
+
 
 
 
