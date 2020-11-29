@@ -48,6 +48,12 @@ int main() {
 			cout << "Error reading pixels" << endl;
 			exit(4);
 		}
+		fin >> r >> g >> b;
+		y = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+		if (y < 0 || y > 255) {
+			cout << "Error: y out of range" << endl;
+			exit(5);
+		}
 
 	}
 
