@@ -41,4 +41,14 @@ int main() {
 	cout << "Image size" << xres << "x" << yres << endl;
 	cout << "Maxval = " << maxval << endl;
 
+	int r, g, b, y;
+	int pixel2read = xres * yres;
+	for (int i = 0; i < pixel2read; i++) {
+		if (!fin) {
+			cout << "Error reading pixels" << endl;
+			exit(4);
+		}
+
+	}
+
 }
