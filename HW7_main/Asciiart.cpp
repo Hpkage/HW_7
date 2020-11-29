@@ -32,4 +32,13 @@ int main() {
 		cout << "Ignoring comment" << endl;
 	}
 
+	int xres, yres, maxval;
+	fin >> xres >> yres >> maxval;
+	if (!fin) {
+		cout << "Error reading res" << endl;
+		exit(3);
+	}
+	cout << "Image size" << xres << "x" << yres << endl;
+	cout << "Maxval = " << maxval << endl;
+
 }
