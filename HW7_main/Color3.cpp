@@ -23,8 +23,14 @@ Color3::Color3(int R, int G, int B) {
 }
 
 int Color3::weightedSum() const {
+	int R, G, B, Y;
 	// Implement Y = 0.2126R + 0.7152G + 0.0722B
+	Y = 0.2126 * R + 0.7152 * G + 0.0722 * B;
 	// Ensure values are inside the range 0 to 255
+	if (Y < 0 || Y > 255) {
+		std::cout << "Error: Y out of range" << std::endl;
+		exit(3);
+	}
 	return 0;
 }
 
