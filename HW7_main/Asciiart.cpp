@@ -27,4 +27,9 @@ int main() {
 		exit(2);
 	}
 
+	getline(fin, line);
+	if (line[0] == '#') {
+		cout << "Ignoring comment" << endl;
+	}
+
 }
