@@ -55,6 +55,13 @@ int main() {
 			exit(5);
 		}
 
+		const char values[] = " .,-+~^*=/{#%$&@";
+		int val_map = y / 16;
+		cout << values[val_map];
+		if (i % 80 == 78) {
+			cout << endl;
+		}
+
 	}
 
 }
