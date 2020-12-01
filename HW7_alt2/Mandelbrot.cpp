@@ -62,10 +62,10 @@ int main() {
 			exit(5);
 		}
 
-		const char values[] = " .,-+~^*=/{#%$&@";
+		const char values[] = " .,*^;!+=?/{#%$&@";
 		int val_map = y / 16;
 		cout << values[val_map];
-		if (i % 80 == 78) {
+		if (i % 600 == 599) {
 			cout << endl;
 		}
 
