@@ -8,9 +8,8 @@ using std::cout;
 using std::endl;
 using std::string;
 
-ifstream fin("parrot.ppm");
-
 int main() {
+	ifstream fin("parrot.ppm");
 	if (!fin) {
 		cout << "Error opening parrot.ppm" << endl;
 		exit(1);
