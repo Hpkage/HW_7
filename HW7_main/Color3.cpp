@@ -30,7 +30,7 @@ int Color3::weightedSum() const {
 	// Ensure values are inside the range 0 to 255
 	if (Y < 0 || Y > 255) {
 		std::cout << "Error: Y out of range" << std::endl;
-		exit(5);
+		exit(6);
 	}
 	return 0;
 }
@@ -39,8 +39,8 @@ char Color3::asciiValue() const {
 	// Use at least 16 characters, sort these from dark to light
 	// or light to dark and then map the weightedSum() to the range
 	// 0 to 15. Please pick your own characters
-	const char values[] = "ABCDEFGHIJKLMNOP";
-	unsigned darkness = 0;
+	const char values[] = " .,-+~^*=/{#%$&@";
+	unsigned darkness = weightedSum() / 16;
 	return values[darkness];
 }
 

@@ -8,6 +8,9 @@
 Image3::Image3(unsigned width, unsigned height) {
 	// TODO: resize the pixels array
 	// TODO: initialize the internal w and h members
+	w = width;
+	h = height;
+	pixels.resize(w * h);
 }
 
 // Return a pixel from the image
@@ -16,24 +19,57 @@ const Color3& Image3::getPixel(unsigned x, unsigned y) const {
 	// TERRIBLE OPTION 1: throw
 	// BETTER OPTION 2: return a color
 	// Hint: maybe this is already in the class?
+	if (y * w + x > pixels.size() - 1 || (y * w + x) < 0) {
+		std::cout << "Error, out of range" << std::endl;
+		exit(7);
+	}
 
 	return pixels[y * w + x];
 }
 
 void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
 	// TODO: Set the pixel to the new color
+	if (y * w + x > pixels.size() - 1 || (y * w + x) < 0) {
+		std::cout << "Error, out of range" << std::endl;
+		exit(8);
+	}
+	pixels[y * w + x] = color;
 }
 
 bool Image3::savePPM(const std::string& path) const {
 	// TODO: Save the image to the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
+	std::ofstream fout(path);
+	if (!fout) {
+		std::cout << "Error in opening path.";
+		exit(9);
+	}
+
+	if (fout) {
+		for (size_t i = 0; i < 100; i++) {
+			if (i % 10 == 0) {
+				fout << std::endl;
+			}
+			fout << std::setw(3) << i;
+		}
+		std::cout << "Successful run" << std::endl;
+	}
 	return false;
 }
 
 bool Image3::loadPPM(const std::string& path) {
 	// TODO: Load an image from the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
-	return false;
+	std::string file;
+	std::ifstream fin(path);
+	if (!fin) {
+		std::cout << "There was an error opening the file." << std::endl;
+		return false;
+	}
+	while (getline(fin, file)) {
+		std::cout << file << std::endl;
+	}
+	return true;
 }
 
 void Image3::printASCII(std::ostream& ostr) const {

@@ -7,6 +7,9 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <iomanip>
+#include <string>
 #include "Color3.hpp"
 
 class Image3
