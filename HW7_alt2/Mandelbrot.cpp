@@ -22,22 +22,53 @@ int value(int x, int y) {
 }
 
 int main() {
-    ofstream my_Image("mandelbrot.ppm");
+	ifstream fin("mandelbrot.ppm");
+	if (!fin) {
+		cout << "Error opening mandelbrot.ppm" << endl;
+		exit(1);
+	}
+	cout << "Oppened mandelbrot.ppm" << endl;
 
-    if (my_Image.is_open()) {
-        my_Image << "P3\n" << width << " " << height << " 255\n";
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                int val = value(i, j);
-                my_Image << val << ' ' << 0 << ' ' << 0 << "\n";
-            }
-        }
-        my_Image.close();
-    }
-    else
-        cout << "Could not open the file";
+	std::string line;
+	getline(fin, line);
+	if (line[0] == 'P' && line[1] == '3') {
+		cout << "Found ppm (text)" << endl;
+	}
+	else {
+		cout << "Unable to read magic number P3" << endl;
+		exit(2);
+	}
 
-    return 0;
+	int xres, yres, maxval;
+	fin >> xres >> yres >> maxval;
+	if (!fin) {
+		cout << "Error reading res" << endl;
+		exit(3);
+	}
+	cout << "Image size " << xres << "x" << yres << endl;
+	cout << "Maxval = " << maxval << endl;
 
+	int r, g, b, y;
+	int pixel2read = xres * yres;
+	for (int i = 0; i < pixel2read; i++) {
+		if (!fin) {
+			cout << "Error reading pixels" << endl;
+			exit(4);
+		}
+		fin >> r >> g >> b;
+		y = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+		if (y < 0 || y > 255) {
+			cout << "Error: y out of range" << endl;
+			exit(5);
+		}
+
+		const char values[] = " .,-+~^*=/{#%$&@";
+		int val_map = y / 16;
+		cout << values[val_map];
+		if (i % 80 == 78) {
+			cout << endl;
+		}
+
+	}
 
 }
