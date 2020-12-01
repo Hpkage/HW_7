@@ -74,6 +74,9 @@ bool Image3::loadPPM(const std::string& path) {
 
 void Image3::printASCII(std::ostream& ostr) const {
 	// TODO: Print an ASCII version of this image
+	for (auto i : pixels) {
+		ostr << i.asciiValue();
+	}
 }
 
 // STREAM OPERATORS for IMAGE3 class
@@ -81,6 +84,7 @@ void Image3::printASCII(std::ostream& ostr) const {
 std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
 	// TODO: Write out PPM image format to stream
 	// ASSUME FORMAT WILL BE GOOD
+	
 	return ostr;
 }
 
