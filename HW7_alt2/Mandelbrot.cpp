@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Color3.hpp"
-#include "Image3.hpp"
+#include <fstream>
+#include <complex>
 
 int main() {
 

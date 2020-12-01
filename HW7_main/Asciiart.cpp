@@ -36,7 +36,7 @@ int main() {
 		cout << "Error reading res" << endl;
 		exit(3);
 	}
-	cout << "Image size" << xres << "x" << yres << endl;
+	cout << "Image size " << xres << "x" << yres << endl;
 	cout << "Maxval = " << maxval << endl;
 
 	int r, g, b, y;
