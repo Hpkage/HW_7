@@ -6,6 +6,8 @@
 #define COLOR3_HPP
 
 #include <iostream>
+#include <string>
+#include <fstream>
 
 class Color3
 {

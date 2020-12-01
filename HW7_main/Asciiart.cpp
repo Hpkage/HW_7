@@ -16,7 +16,7 @@ int main() {
 	}
 	cout << "Oppened parrot.ppm" << endl;
 
-	string line;
+	std::string line;
 	getline(fin, line);
 	if (line[0] == 'P' && line[1] == '3') {
 		cout << "Found ppm (text)" << endl;
@@ -30,7 +30,6 @@ int main() {
 	if (line[0] == '#') {
 		cout << "Ignoring comment" << endl;
 	}
-
 	int xres, yres, maxval;
 	fin >> xres >> yres >> maxval;
 	if (!fin) {

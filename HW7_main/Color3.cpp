@@ -6,6 +6,8 @@
 #include "Color3.hpp"
 
 using std::setw;
+using std::cout;
+using std::endl;
 
 // Ensure values are in the range 0 to maxvalue
 constexpr int saturate(int x, int maxvalue) {
